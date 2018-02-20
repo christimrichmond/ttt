@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<title>Tic Tac Toe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  align-content: center;
+  grid-gap: 20px;
+  background-color: #2196F3;
+  padding: 20px;
+}
+
+.grid-container > div {
+  background-color: #c1d9ff;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 30px;
+}
+
+.buttonSubmit
+{
+  display: none;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<center>
+  <h1>Tic Tac Toe (aka Noughts & Crosses)</h1>
+
+<i>Click a box to make your move.</i>
+<br><br>
+
+<div class="grid-container"> 
+  <div>
+    <form method="post" action="board">
+    <input type="hidden" value="" name="a1" id="a1" align="center" size="1">
+    <input type="submit" value=" " name="a1" id="a1" align="center" size="1">
+  </div>
+
+  <div>
+    <form method="post" action="board">
+    <input type="hidden" value="" name="a2" id="a2" align="center" size="1">
+    <input type="submit" value=" " name="a2" id="a2" align="center" size="1">
+  </div>
+
+  <div>
+    <form method="post" action="board">
+    <input type="hidden" value="" name="a3" id="a3" align="center" size="1">
+    <input type="submit" value=" " name="a3" id="a3" align="center" size="1">
+  </div>
+
+  <div>
+    <form method="post" action="board">
+    <input type="hidden" value="" name="a4" id="a4" align="center" size="1">
+    <input type="submit" value=" " name="a4" id="a4" align="center" size="1">
+  </div>
+
+  <div>
+    <form method="post" action="board">
+    <input type="hidden" value="" name="a5" id="a5" align="center" size="1">
+    <input type="submit" value=" " name="a5" id="a5" align="center" size="1">
+  </div>
+
+  <div>
+    <form method="post" action="board">
+    <input type="hidden" value="" name="a6" id="a6" align="center" size="1">
+    <input type="submit" value=" " name="a6" id="a6" align="center" size="1">
+  </div>
+  
+  <div>
+    <form method="post" action="board">
+    <input type="hidden" value="" name="a7" id="a7" align="center" size="1">
+    <input type="submit" value=" " name="a7" id="a7" align="center" size="1">
+  </div>
+
+  <div>
+    <form method="post" action="board">
+    <input type="hidden" value="" name="a8" id="a8" align="center" size="1">
+    <input type="submit" value=" " name="a8" id="a8" align="center" size="1">
+  </div>
+
+  <div>
+    <form method="post" action="board">
+    <input type="hidden" value="" name="a9" id="a9" align="center" size="1">
+    <input type="submit" value=" " name="a9" id="a9" align="center" size="1">
+  </div>
+<input type="submit" class="buttonSubmit">
+</form>
+</div>
+</center>
+</body>
+</html>
+

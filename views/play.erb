@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<title>Tic Tac Toe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  align-content: center;
+  grid-gap: 20px;
+  background-color: #2196F3;
+  padding: 20px;
+}
+
+.grid-container > div {
+  background-color: #c1d9ff;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 30px;
+}
+
+.button {
+    background-color: #c1d9ff;
+    border: 0;
+    color: red;
+    padding: auto;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    cursor: pointer;
+    
+}
+
+.buttonSubmit {
+	display: none;
+}
+
+.active, .button:hover {
+	background-color: red;
+	color: white;
+}
+
+</style>
+</head>
+
+<body>
+<br>
+
+<center>
+
+<h1>Tic Tac Toe (aka Noughts & Crosses)</h1>
+<i>
+	<%= winner_result %>
+</i>
+<br>
+<br>
+<div class="grid-container">
+  <div>
+  	<form method="post" action="board">
+	<% if a1.upcase == 'X' || a1.upcase == 'O' %>
+	<input type="hidden" name="a1" align="center" size="1" value= <%= a1 %>>
+	<%= a1 %>
+	<% end %>
+	<% if a1.upcase != 'X' && a1.upcase != 'O' %>
+	<input type="hidden" name="a1" align="center" size="1" value= "">
+	<input type="submit" name="a1" align="center" size="1" value= " ">
+    <% end %>
+   </div>
+
+  <div>
+  	<form method="post" action="board">
+	<% if a2.upcase == 'X' || a2.upcase == 'O' %>
+	<input type="hidden" name="a2" align="center" size="1" value= <%= a2 %>>
+	<%= a2 %>
+	<% end %>
+	<% if a2.upcase != 'X' && a2.upcase != 'O' %>
+	<input type="hidden" name="a2" align="center" size="1" value= "">
+	<input type="submit" name="a2" align="center" size="1" value= " ">
+    <% end %>
+   </div>
+
+  <div>
+  	<form method="post" action="board">
+	<% if a3.upcase == 'X' || a3.upcase == 'O' %>
+	<input type="hidden" name="a3" align="center" size="1" value= <%= a3 %>>
+	<%= a3 %>
+	<% end %>
+	<% if a3.upcase != 'X' && a3.upcase != 'O' %>
+	<input type="hidden" name="a3" align="center" size="1" value= "">
+	<input type="submit" name="a3" align="center" size="1" value= " ">
+    <% end %>
+   </div>
+
+   <div>
+  	<form method="post" action="board">
+	<% if a4.upcase == 'X' || a4.upcase == 'O' %>
+	<input type="hidden" name="a4" align="center" size="1" value= <%= a4 %>>
+	<%= a4 %>
+	<% end %>
+	<% if a4.upcase != 'X' && a4.upcase != 'O' %>
+	<input type="hidden" name="a4" align="center" size="1" value= "">
+	<input type="submit" name="a4" align="center" size="1" value= " ">
+    <% end %>
+   </div>
+
+   <div>
+  	<form method="post" action="board">
+	<% if a5.upcase == 'X' || a5.upcase == 'O' %>
+	<input type="hidden" name="a5" align="center" size="1" value= <%= a5 %>>
+	<%= a5 %>
+	<% end %>
+	<% if a5.upcase != 'X' && a5.upcase != 'O' %>
+	<input type="hidden" name="a5" align="center" size="1" value= "">
+	<input type="submit" name="a5" align="center" size="1" value= " ">
+    <% end %>
+   </div>
+
+   <div>
+  	<form method="post" action="board">
+	<% if a6.upcase == 'X' || a6.upcase == 'O' %>
+	<input type="hidden" name="a6" align="center" size="1" value= <%= a6 %>>
+	<%= a6 %>
+	<% end %>
+	<% if a6.upcase != 'X' && a6.upcase != 'O' %>
+	<input type="hidden" name="a6" align="center" size="1" value= "">
+	<input type="submit" name="a6" align="center" size="1" value= " ">
+    <% end %>
+   </div>
+  
+   <div>
+  	<form method="post" action="board">
+	<% if a7.upcase == 'X' || a7.upcase == 'O' %>
+	<input type="hidden" name="a7" align="center" size="1" value= <%= a7 %>>
+	<%= a7 %>
+	<% end %>
+	<% if a7.upcase != 'X' && a7.upcase != 'O' %>
+	<input type="hidden" name="a7" align="center" size="1" value= "">
+	<input type="submit" name="a7" align="center" size="1" value= " ">
+    <% end %>
+   </div>
+
+   <div>
+  	<form method="post" action="board">
+	<% if a8.upcase == 'X' || a8.upcase == 'O' %>
+	<input type="hidden" name="a8" align="center" size="1" value= <%= a8 %>>
+	<%= a8 %>
+	<% end %>
+	<% if a8.upcase != 'X' && a8.upcase != 'O' %>
+	<input type="hidden" name="a8" align="center" size="1" value= "">
+	<input type="submit" name="a8" align="center" size="1" value= " ">
+    <% end %>
+   </div>
+
+   <div>
+  	<form method="post" action="board">
+	<% if a9.upcase == 'X' || a9.upcase == 'O' %>
+	<input type="hidden" name="a9" align="center" size="1" value= <%= a9 %>>
+	<%= a9 %>
+	<% end %>
+	<% if a9.upcase != 'X' && a9.upcase != 'O' %>
+	<input type="hidden" name="a9" align="center" size="1" value= "">
+	<input type="submit" name="a9" align="center" size="1" value= " ">
+    <% end %>
+   </div>
+    <input type="submit" class="buttonSubmit">
+</form>
+</div>
+</center>
+</body>
+</html>
+
