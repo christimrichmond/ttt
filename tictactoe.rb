@@ -17,7 +17,18 @@ end
 	# puts out
 	end
 
+	def ai(a1, a2, a3, a4, a5, a6, a7, a8, a9)
 
+		if a1 == "O"
+			a2 = "O"
+		elsif a1 && a2 == "O"
+			a3 = "O"
+		elsif a1 && a5 == "O"
+			a9 = "O"
+		else a1 && a4 == "O"
+			a7 = "O"
+		end
+	end
 
 
 def winner(a1, a2, a3, a4, a5, a6, a7, a8, a9)

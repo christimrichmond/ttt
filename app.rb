@@ -22,7 +22,9 @@ end
 
 get '/play' do
 	computer = " "
+	# ai = " "
 	winner_result = " "
+
     a1 = params[:a1]
     a2 = params[:a2]
     a3 = params[:a3]
@@ -119,6 +121,22 @@ get '/play' do
 		elsif computer == "a9"
 			a9 = "O"
 		end
+
+	# ai = board(a1, a2, a3, a4, a5, a6, a7, a8, a9)
+
+	# 	if a1 == "O"
+	# 		a2 || a4 || a5 = "O"
+	# 	elsif a1 && a2 == "O"
+	# 		a3 = "O"
+	# 	elsif a1 && a5 == "O"
+	# 		a9 = "O"
+	# 	else a1 && a4 == "O"
+	# 		a7 = "O"
+	# 	end
+
+
+
+
 
 	
 	winner_result = winner(a1.upcase, a2.upcase, a3.upcase, a4.upcase, a5.upcase, a6.upcase, a7.upcase, a8.upcase, a9.upcase)		
