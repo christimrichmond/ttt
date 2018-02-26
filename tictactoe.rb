@@ -17,18 +17,37 @@ end
 	# puts out
 	end
 
-	def ai(a1, a2, a3, a4, a5, a6, a7, a8, a9)
+def ai(a1, a2, a3, a4, a5, a6, a7, a8, a9)
+	board_hash = {1 => a1, 2 => a2, 3 => a3, 4 => a4, 5 => a5, 6 => a6, 7 => a7, 8 => a8, 9 => a9}
+	blank_board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	
+	#Below are the 8 possible winning scenarios:
+	horizontal1 = {1 => a1, 2 => a2, 3 =>a3}	
+	horizontal2 = {4 => a4, 5 => a5, 6 =>a6}
+	horizontal3 = {7 => a7, 8 => a8, 9 => a9}
+	
+	vertical1 = {1 => a1, 4 => a4, 7 => a7}
+	vertical2 = {2 => a2, 5 => a5, 8 => a8}
+	vertical3 = {3 => a3, 6 => a6, 9 => a9}
+	
+	diagonal1 = {1 => a1, 5 => a5, 9 => a9}
+	diagonal2 = {3 => a3, 5 => a5, 7 => a7}
 
-		if a1 == "O"
-			a2 = "O"
-		elsif a1 && a2 == "O"
-			a3 = "O"
-		elsif a1 && a5 == "O"
-			a9 = "O"
-		else a1 && a4 == "O"
-			a7 = "O"
-		end
-	end
+	#Below are the descriptions of the spaces on the board
+	corners = {1 => a1, 3 => a3, 7 => a7, 9 => a9}
+	center = a5
+	edges = {2 => a2, 4 => a4, 6 => a6, 8 => a8}
+
+# 		if a1 == "O"
+# 			a2 = "O"
+# 		elsif a1 && a2 == "O"
+# 			a3 = "O"
+# 		elsif a1 && a5 == "O"
+# 			a9 = "O"
+# 		else a1 && a4 == "O"
+# 			a7 = "O"
+# 		end
+end
 
 
 def winner(a1, a2, a3, a4, a5, a6, a7, a8, a9)
