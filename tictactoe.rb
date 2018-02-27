@@ -12,9 +12,8 @@ end
 	random_remaining_moves = remaining_moves.shuffle.pop.to_s
 	
 	a = "a"
-	out = a<<random_remaining_moves
-	return out
-	# puts out
+	$ai_move = a<<random_remaining_moves
+	return $ai_move
 	end
 
 def ai(a1, a2, a3, a4, a5, a6, a7, a8, a9)
@@ -38,15 +37,23 @@ def ai(a1, a2, a3, a4, a5, a6, a7, a8, a9)
 	center = a5
 	edges = {2 => a2, 4 => a4, 6 => a6, 8 => a8}
 
-# 		if a1 == "O"
-# 			a2 = "O"
-# 		elsif a1 && a2 == "O"
-# 			a3 = "O"
-# 		elsif a1 && a5 == "O"
-# 			a9 = "O"
-# 		else a1 && a4 == "O"
-# 			a7 = "O"
-# 		end
+	corners.each do |key, value|
+		if value == ""
+			$ai_move = key
+		else
+			$ai_move = ""
+		end
+	end
+
+	if $ai_move == ""
+		edges.each do |key, value|
+		if value == ""
+		$ai_move = key
+		end
+		end
+	end
+return $ai_move
+
 end
 
 
@@ -67,8 +74,47 @@ def winner(a1, a2, a3, a4, a5, a6, a7, a8, a9)
 			else
 				$result = "No winner"
 			end
-
 	end
-return $result	
-end
 
+return $result	
+
+	win_pattern = [[a1,a2,a3],[a4,a5,a6],[a7,a8,a9],[a1,a4,a7],[a2,a5,a8],[a3,a6,a9],[a1,a5,a9],[a3,a5,a7]]
+	(0..7).each do |i|
+		three = win_pattern[i]
+		x_num = three.select {|k,v| v == "X"}
+		o_num = three.select {|k,v| v == "O"}
+		no_num = three.select {|k,v| v == ""}
+		if x_num.length == 2
+			if o_num.length < 1
+				$ai_move = no_num.key("")
+			end
+		end
+	end
+
+	(0..7).each do |i|
+		three = win_pattern[i]
+		x_num = three.select {|k,v| v == "X"}
+		o_num = three.select {|k,v| v == "O"}
+		no_num = three.select {|k,v| v == ""}
+		if o_num.length == 2
+			if x_num.length < 1
+				$ai_move = no_num.key("")
+		end
+			end
+	end
+
+	if blank_board[5] == ""
+		$ai_move = 5.to_s
+	end
+
+	if blank_board == ["X","","","","O","","","","X"]
+		$ai_move  = 2
+		elsif	blank_board == ["","","X","","O","","X","",""]
+		$ai_move  = 2
+	end
+		
+	a = "square"
+	 out = a<<$ai_pick.to_s 
+	return out
+
+end

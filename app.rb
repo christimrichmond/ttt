@@ -6,6 +6,20 @@ get '/' do
 	erb :home
 end
 
+# post '/play' do
+# 	start_game = params[:start_game]
+# 	a1 = params[:a1]
+# 	a2 = params[:a2]
+# 	a3 = params[:a3]
+# 	a4 = params[:a4]
+# 	a5 = params[:a5]
+# 	a6 = params[:a6]
+# 	a7 = params[:a7]
+# 	a8 = params[:a8]
+# 	a9 = params[:a9]
+# 	redirect '/play?start_game=' + start_game
+# end
+
 post '/board' do 
 	a1 = params[:a1]
 	a2 = params[:a2]
@@ -16,14 +30,14 @@ post '/board' do
 	a7 = params[:a7]
 	a8 = params[:a8]
 	a9 = params[:a9]
-	# puts a1, a2, a3, a4, a5, a6, a7, a8, a9
-	redirect '/play?a1=' + a1.upcase + '&a2=' + a2.upcase + '&a3=' + a3.upcase + '&a4=' + a4.upcase + '&a5=' + a5.upcase + '&a6=' + a6.upcase + '&a7=' + a7.upcase + '&a8=' + a8.upcase + '&a9=' + a9.upcase
+	puts a1, a2, a3, a4, a5, a6, a7, a8, a9
+	start_game = params[:start_game]
+	redirect '/play?a1=' + a1.upcase + '&a2=' + a2.upcase + '&a3=' + a3.upcase + '&a4=' + a4.upcase + '&a5=' + a5.upcase + '&a6=' + a6.upcase + '&a7=' + a7.upcase + '&a8=' + a8.upcase + '&a9=' + a9.upcase + '&start_game=' + start_game
 end
 
 get '/play' do
-	default = " "
+	start_game = params[:start_game]
 	winner_result = " "
-	unbeatable = params[:unbeatable]
     a1 = params[:a1]
     a2 = params[:a2]
     a3 = params[:a3]
@@ -33,6 +47,12 @@ get '/play' do
     a7 = params[:a7]
     a8 = params[:a8]
     a9 = params[:a9]
+
+    if start_game == "default"
+    		start_game = "default"
+    	elsif start_game == "unbeatable"
+    		start_game = "unbeatable"
+    end
 
     if a1 == "X"
 	   	 	a1 = "X"
@@ -97,42 +117,37 @@ get '/play' do
 		else a9 = "O"
 	end
 
-	default = board(a1, a2, a3, a4, a5, a6, a7, a8, a9)
-	unbeatable  = ai(a1, a2, a3, a4, a5, a6, a7, a8, a9)
+	if start_game == "default"
+		easy = board(a1, a2, a3, a4, a5, a6, a7, a8, a9)
+	end
+	if start_game == "unbeatable"
+		unbeatable  = ai(a1, a2, a3, a4, a5, a6, a7, a8, a9)
+	end
 
-		if default == "a1"
+		if $ai_move == "a1"
 			a1 = "X"
-		elsif default == "a2"
+		elsif $ai_move == "a2"
 			a2 = "X"
-		elsif default == "a3"
+		elsif $ai_move == "a3"
 			a3 = "X"
-		elsif default == "a4"
+		elsif $ai_move == "a4"
 			a4 = "X"
-		elsif default == "a5"
+		elsif $ai_move == "a5"
 			a5 = "X"
-		elsif default == "a6"
+		elsif $ai_move == "a6"
 			a6 = "X"
-		elsif default == "a7"
+		elsif $ai_move == "a7"
 			a7 = "X"
-		elsif default == "a8"
+		elsif $ai_move == "a8"
 			a8 = "X"
-		elsif default == "a9"
+		elsif $ai_move == "a9"
 			a9 = "X"
 		end
 
-		
-		if unbeatable == "a1"
-			a1 = "O"
-		elsif unbeatable == "a3"
-			a3 = "O"
-		elsif unbeatable == "a7"
-			a7 = "O"
-		elsif unbeatable == "a9"
-			a9 = "O"
-		end
-
-
 	winner_result = winner(a1.upcase, a2.upcase, a3.upcase, a4.upcase, a5.upcase, a6.upcase, a7.upcase, a8.upcase, a9.upcase)		
-	erb :play, :locals => {:a1 => a1, :a2 => a2, :a3 => a3, :a4 => a4, :a5 => a5, :a6 => a6, :a7 => a7, :a8 => a8, :a9 => a9, :unbeatable => unbeatable, :default => default, :winner_result => winner_result}
+	erb :play, :locals => {:a1 => a1, :a2 => a2, :a3 => a3, :a4 => a4, :a5 => a5, :a6 => a6, :a7 => a7, :a8 => a8, :a9 => a9, :start_game => start_game, :unbeatable => unbeatable, :winner_result => winner_result}
 
 end
+
+
+# :default => default, 
